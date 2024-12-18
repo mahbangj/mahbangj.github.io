@@ -17,8 +17,8 @@
             color: #333;
         }
         .profile-container {
-            position: fixed;
-            top: 150px;
+            position: absolute;
+            top: 20px;
             left: 20px;
             display: flex;
             align-items: center;
@@ -54,7 +54,8 @@
         nav {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
             margin: 1rem 0;
         }
         nav a {
@@ -97,6 +98,60 @@
         }
         .contact a:hover {
             text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .profile-container {
+                position: relative;
+                margin: 0 auto 1rem;
+                text-align: center;
+            }
+            .profile-picture {
+                width: 120px;
+                height: 120px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            section {
+                padding: 1rem;
+                margin: 1rem;
+            }
+            nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            nav a {
+                font-size: 0.9rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .profile-container {
+                position: relative;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            .profile-picture {
+                width: 100px;
+                height: 100px;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+            header p {
+                font-size: 0.9rem;
+            }
+            section h2 {
+                font-size: 1.5rem;
+            }
+            section p, section ul {
+                font-size: 0.9rem;
+            }
+            nav a {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
