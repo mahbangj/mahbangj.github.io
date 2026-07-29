@@ -5,6 +5,7 @@
   const menuToggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
   const navLinks = [...document.querySelectorAll('.site-nav a')];
+  const backToTop = document.querySelector('[data-back-to-top]');
   const year = document.querySelector('#current-year');
 
   const storedTheme = localStorage.getItem('theme');
@@ -47,6 +48,12 @@
   });
 
   navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+
+  backToTop?.addEventListener('click', (event) => {
+    event.preventDefault();
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, left: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') closeMenu();
