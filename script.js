@@ -1,5 +1,11 @@
 (() => {
   const root = document.documentElement;
+  const demoVideo = document.querySelector('.demo-video');
+  const demoFallback = document.querySelector('.demo-video-fallback');
+  if (demoVideo && demoFallback) {
+    demoVideo.addEventListener('error', () => { demoVideo.hidden = true; demoFallback.style.display = 'grid'; }, true);
+    demoVideo.querySelector('source')?.addEventListener('error', () => { demoVideo.hidden = true; demoFallback.style.display = 'grid'; });
+  }
   const header = document.querySelector('.site-header');
   const themeToggle = document.querySelector('.theme-toggle');
   const menuToggle = document.querySelector('.menu-toggle');
